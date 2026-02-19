@@ -49,7 +49,7 @@ app.get("/auth/callback", async (req, res) => {
     const { access_token, refresh_token } = tokenResponse.data;
 
     // Redirect back into the app via deep link
-    return res.redirect(`companify://spotify-callback?access_token=${access_token}&refresh_token=${refresh_token}`);
+    return res.redirect(`companify://callback?access_token=${access_token}&refresh_token=${refresh_token}`);
   } catch (err) {
     console.error("Error exchanging code:", err.response?.data || err);
     return res.status(500).json({ error: "Failed to get tokens" });
